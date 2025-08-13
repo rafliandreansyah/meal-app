@@ -1,11 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
+import CategoryScreen from "./screens/CategoryScreen";
 
 export default function Index() {
-  return (
-    <View style={styles.container}>
-      <Text>Hello World</Text>
-    </View>
-  );
+  return <CategoryScreen />;
 }
 
 const styles = StyleSheet.create({
