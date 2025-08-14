@@ -11,8 +11,8 @@ export default function CategoryScreen({ navigation }: Props) {
   // Each category is displayed as a grid tile using the CategoryGridTile component
   // The navigation prop is used to navigate to the MealOverview screen when a category is pressed
 
-  function onItemPress() {
-    navigation.navigate("MealOverview");
+  function onItemPress(categoryId: string) {
+    navigation.navigate("MealOverview", { categoryId: categoryId });
   }
 
   return (
@@ -26,7 +26,7 @@ export default function CategoryScreen({ navigation }: Props) {
             <CategoryGridTile
               title={categoryItem.item.title}
               color={categoryItem.item.color}
-              onPress={onItemPress}
+              onPress={() => onItemPress(categoryItem.item.id)}
             />
           );
         }}
