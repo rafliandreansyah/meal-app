@@ -3,16 +3,17 @@ import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 export default function CategoryGridTile({
   title,
   color,
+  onPress,
 }: {
   title: string;
   color: string;
+  onPress?: () => void;
 }) {
   // This component is used to display a grid tile for each category
   // It can be used in a FlatList or any other list component
   // The Pressable component is used to make the tile clickable
   // The View component is used to wrap the Text component
   // The Text component is used to display the title of the category
-
   return (
     <View style={styles.gridItem}>
       <Pressable
@@ -21,6 +22,7 @@ export default function CategoryGridTile({
           pressed && styles.buttonPressed,
         ]}
         android_ripple={{ color: "#ccc" }}
+        onPress={onPress}
       >
         <View style={[styles.innerContainer, { backgroundColor: color }]}>
           <Text style={styles.title}>{title}</Text>

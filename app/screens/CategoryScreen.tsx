@@ -1,8 +1,20 @@
 import CategoryGridTile from "@/components/CateogryGridTile";
 import { CATEGORIES } from "@/data/data-dummy";
+import { RootStackParamList } from "@/types/navigation";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { FlatList, View } from "react-native";
 
-export default function CategoryScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, "MealsCategories">;
+
+export default function CategoryScreen({ navigation }: Props) {
+  // This screen displays a list of categories using a FlatList
+  // Each category is displayed as a grid tile using the CategoryGridTile component
+  // The navigation prop is used to navigate to the MealOverview screen when a category is pressed
+
+  function onItemPress() {
+    navigation.navigate("MealOverview");
+  }
+
   return (
     <View>
       <FlatList
@@ -14,6 +26,7 @@ export default function CategoryScreen() {
             <CategoryGridTile
               title={categoryItem.item.title}
               color={categoryItem.item.color}
+              onPress={onItemPress}
             />
           );
         }}
