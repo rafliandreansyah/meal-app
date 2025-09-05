@@ -3,7 +3,7 @@ import { MEALS } from "@/data/data-dummy";
 import Meal from "@/models/meal";
 import { RootStackParamList } from "@/types/navigation";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 
 type Props = NativeStackScreenProps<RootStackParamList, "MealOverview">;
 
@@ -14,7 +14,6 @@ export default function MealOverviewScreen({ route, navigation }: Props) {
   );
   return (
     <View style={styles.container}>
-      <Text>Meal Overview Screen - {catId}</Text>
       <FlatList
         data={displayedMeals}
         keyExtractor={(item) => item.id}
@@ -31,6 +30,6 @@ function renderedMealItem(itemData: Meal) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    paddingHorizontal: 16,
   },
 });
