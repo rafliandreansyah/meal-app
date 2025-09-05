@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   pressContainer: {
-    opacity: 0.8,
+    opacity: 0.9,
   },
   image: {
     width: "100%",
