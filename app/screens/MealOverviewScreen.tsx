@@ -21,19 +21,26 @@ export default function MealOverviewScreen({ route, navigation }: Props) {
     });
   }, [catId, navigation]);
 
+  function onMealClick(mealId: string) {
+    navigation.navigate("MealDetail", { mealId: mealId });
+  }
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container]}>
       <FlatList
         data={displayedMeals}
         keyExtractor={(item) => item.id}
-        renderItem={(item) => renderedMealItem(item.item)}
+        renderItem={(item) => renderedMealItem(item.item, onMealClick)}
       />
     </View>
   );
 }
 
-function renderedMealItem(itemData: Meal) {
-  return <MealItem meal={itemData} />;
+function renderedMealItem(
+  itemData: Meal,
+  onMealClick: (mealId: string) => void
+) {
+  return <MealItem meal={itemData} onClick={(mealId) => onMealClick(mealId)} />;
 }
 
 const styles = StyleSheet.create({

@@ -2,6 +2,7 @@ import { RootStackParamList } from "@/types/navigation";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StyleSheet } from "react-native";
 import CategoryScreen from "./screens/CategoryScreen";
+import MealDetailScreen from "./screens/MealDetailScreen";
 import MealOverviewScreen from "./screens/MealOverviewScreen";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -21,6 +22,13 @@ export default function Index() {
         component={MealOverviewScreen}
         options={{
           title: "Meal Overview",
+        }}
+      />
+      <Stack.Screen
+        name="MealDetail"
+        component={MealDetailScreen}
+        options={{
+          title: "Meal Detail",
         }}
       />
     </Stack.Navigator>
